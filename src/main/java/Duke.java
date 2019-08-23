@@ -1,4 +1,8 @@
 import com.sun.source.tree.WhileLoopTree;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Duke {
@@ -14,16 +18,18 @@ public class Duke {
                 "    ____________________________________________________________");
 
         Scanner input = new Scanner(System.in);
+        TaskList taskList = new TaskList("tasklist");
         String user = input.nextLine();
 
         while (!user.equals("bye")) {
-            System.out.println("    ____________________________________________________________\n" +
-                    "     " + user +"\n" +
-                    "    ____________________________________________________________");
-            user =input.nextLine();
+            if (user.equals("list")){
+                taskList.listTasks();
+            }else {
+                taskList.addtask(user);
+            }
+            user = input.nextLine();
         }
-
-        System.out.print("    ____________________________________________________________\n" +
+        System.out.println("    ____________________________________________________________\n" +
                 "     Bye. Hope to see you again soon!\n" +
                 "    ____________________________________________________________");
     }
