@@ -21,11 +21,21 @@ public class Duke {
         TaskList taskList = new TaskList("tasklist");
         String user = input.nextLine();
 
+        String[] cases = {"list","done"};
+
         while (!user.equals("bye")) {
-            if (user.equals("list")){
-                taskList.listTasks();
-            }else {
-                taskList.addtask(user);
+            int i = 0;
+            for(i = 0; i < cases.length; i++)
+                if(user.contains(cases[i])) break;
+            switch (i){
+                case 0:
+                    taskList.listTasks();
+                    break;
+                case 1:
+                    taskList.completetask(user);
+                    break;
+                default:
+                    taskList.addtask(user);
             }
             user = input.nextLine();
         }

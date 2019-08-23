@@ -7,7 +7,10 @@ public class Task {
         this.isDone = false;
     }
     public String currentStatus() {
-        return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
+        return ((isDone ? "[✓] " : "[✗] ")); //return tick or X symbols
+    }
+    public String overallStatus() {
+        return currentStatus() + name;
     }
 
     public String getName() {
@@ -18,5 +21,8 @@ public class Task {
         System.out.println("    ____________________________________________________________\n" +
                 "     added: "+ name +"\n" +
                 "    ____________________________________________________________");
+    }
+    public void completed() {
+        isDone = true;
     }
 }
