@@ -25,26 +25,35 @@ public class Duke {
 
         while (!user.equals("bye")) {
             int i = 0;
-            for(i = 0; i < cases.length; i++)
-                if(user.contains(cases[i])) break;
-            switch (i){
-                case 0:
-                    taskList.listTasks();
-                    break;
-                case 1:
-                    taskList.completetask(user);
-                    break;
-                case 2:
-                    taskList.addtodo(user.split(" ",2)[1]);
-                    break;
-                case 3:
-                    taskList.adddeadline(user.split(" ",2)[1]);
-                    break;
-                case 4:
-                    taskList.addevent(user.split(" ",2)[1]);
-                    break;
-                default:
-                    taskList.addtask(user);
+            for(i = 0; i < cases.length; i++) {
+                if (user.contains(cases[i])) break;
+            }
+            try {
+                switch (i) {
+                    case 0:
+                        taskList.listTasks();
+                        break;
+                    case 1:
+                        taskList.completetask(user);
+                        break;
+                    case 2:
+                        taskList.addtodo(user.split(" ", 2)[1]);
+                        break;
+                    case 3:
+                        taskList.adddeadline(user.split(" ", 2)[1]);
+                        break;
+                    case 4:
+                        taskList.addevent(user.split(" ", 2)[1]);
+                        break;
+                    default:
+                        System.out.println("    ____________________________________________________________\n" +
+                                "     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n" +
+                                "    ____________________________________________________________");
+                }
+            }catch (IndexOutOfBoundsException e){
+                System.out.println("    ____________________________________________________________\n" +
+                        "     ☹ OOPS!!! The description of a task cannot be empty.\n" +
+                        "    ____________________________________________________________");
             }
             user = input.nextLine();
         }

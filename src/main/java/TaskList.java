@@ -17,12 +17,6 @@ public class TaskList {
         list = new LinkedList<Task>();
     }
 
-    public void addtask(String taskname) {
-        list.addLast(new Task(taskname));
-        System.out.println("    ____________________________________________________________\n" +
-                "     added: "+ list.getLast().getname() +"\n" +
-                "    ____________________________________________________________");
-    }
 
     public void listTasks() {
         int i = 0;
