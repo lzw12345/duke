@@ -13,14 +13,8 @@ public class Task {
         return currentStatus() + name;
     }
 
-    public String getName() {
-        return (name);
-    }
-
-    public void printname() {
-        System.out.println("    ____________________________________________________________\n" +
-                "     added: "+ name +"\n" +
-                "    ____________________________________________________________");
+    public String getname() {
+    return name;
     }
     public void completed() {
         isDone = true;

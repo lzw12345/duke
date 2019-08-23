@@ -4,6 +4,14 @@ public class TaskList {
     private String listname;
     private LinkedList<Task> list;
 
+    public void printnewtask(){
+        System.out.println("    ____________________________________________________________\n" +
+                "     Got it. I've added this task: \n" +
+                "       " + list.getLast().overallStatus() + "\n" +
+                "     Now you have " + list.size() + " tasks in the list.\n" +
+                "    ____________________________________________________________");
+    }
+
     public TaskList(String listname) {
         this.listname = listname;
         list = new LinkedList<Task>();
@@ -11,7 +19,9 @@ public class TaskList {
 
     public void addtask(String taskname) {
         list.addLast(new Task(taskname));
-        list.getLast().printname();
+        System.out.println("    ____________________________________________________________\n" +
+                "     added: "+ list.getLast().getname() +"\n" +
+                "    ____________________________________________________________");
     }
 
     public void listTasks() {
@@ -32,5 +42,18 @@ public class TaskList {
                 "       "+ list.get(tasknumber-1).overallStatus() +"\n" +
                 "    ____________________________________________________________");
     }
+    public void addtodo(String todoname){
+        list.addLast(new ToDos(todoname));
+        printnewtask();
+    }
+    public void adddeadline(String deadname) {
+        list.addLast(new Deadlines((deadname.split("/")[0]), (deadname.split("/by")[1])));
+        printnewtask();
+    }
+    public void addevent(String eventname){
+        list.addLast(new Events((eventname.split("/")[0]), (eventname.split("/at")[1])));
+        printnewtask();
+    }
+
 
 }

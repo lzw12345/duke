@@ -21,7 +21,7 @@ public class Duke {
         TaskList taskList = new TaskList("tasklist");
         String user = input.nextLine();
 
-        String[] cases = {"list","done"};
+        String[] cases = {"list","done","todo","deadline","event"};
 
         while (!user.equals("bye")) {
             int i = 0;
@@ -33,6 +33,15 @@ public class Duke {
                     break;
                 case 1:
                     taskList.completetask(user);
+                    break;
+                case 2:
+                    taskList.addtodo(user.split(" ",2)[1]);
+                    break;
+                case 3:
+                    taskList.adddeadline(user.split(" ",2)[1]);
+                    break;
+                case 4:
+                    taskList.addevent(user.split(" ",2)[1]);
                     break;
                 default:
                     taskList.addtask(user);
