@@ -48,6 +48,16 @@ public class TaskList {
         list.addLast(new Events((eventname.split("/")[0]), (eventname.split("/at")[1])));
         printnewtask();
     }
+    public void removetask(String deletedvent){
+        int tasktodelete = Integer.parseInt(deletedvent.split(" ")[1]);
+        System.out.println("    ____________________________________________________________\n" +
+                "     Noted. I've removed this task: \n" +
+                "       "+ list.get(tasktodelete-1).overallStatus() +"\n" +
+                "     Now you have " + (list.size()-1) + " tasks in the list.\n" +
+                "    ____________________________________________________________");
+        list.remove(tasktodelete-1);
+
+    }
 
 
 }

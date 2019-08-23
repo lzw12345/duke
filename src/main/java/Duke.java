@@ -21,7 +21,7 @@ public class Duke {
         TaskList taskList = new TaskList("tasklist");
         String user = input.nextLine();
 
-        String[] cases = {"list","done","todo","deadline","event"};
+        String[] cases = {"list","done","todo","deadline","event","delete"};
 
         while (!user.equals("bye")) {
             int i = 0;
@@ -44,6 +44,9 @@ public class Duke {
                         break;
                     case 4:
                         taskList.addevent(user.split(" ", 2)[1]);
+                        break;
+                    case 5:
+                        taskList.removetask(user);
                         break;
                     default:
                         System.out.println("    ____________________________________________________________\n" +
