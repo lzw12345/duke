@@ -1,18 +1,10 @@
 package parser;
 
-import Ui.TextUi;
+import ui.TextUi;
 import tasklist.TaskList;
-
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,18 +17,18 @@ public class Parser {
     private LocalDateTime date;
     private boolean isSafe;
     private TextUi ui;
+    public static final Pattern COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\w+)"
+            + "\\s*(?<completionStatus>(\\[[01]\\])?)"
+            + "\\s*(?<description>([\\w\\s\\d]+)?)"
+            + "(?:(/by|/at))?(?<date>([\\w\\s\\d/]+)?)");
 
-    public Parser(){
+    public Parser() {
         ui = new TextUi();
-    };
+    }
 
-    public void parse(String fullCommand, TaskList scheduler , boolean isLoading){
+    public void parse(String fullCommand, TaskList scheduler, boolean isLoading) {
         isSafe = true;
-        Pattern command_format = Pattern.compile("(?<commandWord>\\w+)"
-                + "\\s*(?<completionStatus>(\\[[01]\\])?)"
-                + "\\s*(?<description>([\\w\\s\\d]+)?)"
-                + "(?:(/by|/at))?(?<date>([\\w\\s\\d/]+)?)");
-        Matcher matcher = command_format.matcher(fullCommand);
+        Matcher matcher = COMMAND_FORMAT.matcher(fullCommand);
         if (matcher.find()) {
             command = matcher.group("commandWord");
             isDone = matcher.group("completionStatus").equals("[1]");

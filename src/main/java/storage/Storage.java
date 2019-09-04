@@ -1,7 +1,7 @@
 package storage;
 
 
-import Ui.TextUi;
+import ui.TextUi;
 import tasklist.Task;
 import tasklist.TaskList;
 import parser.Parser;
@@ -46,8 +46,8 @@ public class Storage {
             }
             tasknumber++;
         }
-            bufferedReader.close();
-            return storedData.getTaskList();
+        bufferedReader.close();
+        return storedData.getTaskList();
     }
 
 }

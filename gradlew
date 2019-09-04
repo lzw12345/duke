@@ -123,7 +123,7 @@ if $cygwin ; then
         SEP="|"
     done
     OURCYGPATTERN="(^($ROOTDIRS))"
-    # Add a Ui-defined pattern to the cygpath arguments
+    # Add a ui-defined pattern to the cygpath arguments
     if [ "$GRADLE_CYGPATTERN" != "" ] ; then
         OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
     fi

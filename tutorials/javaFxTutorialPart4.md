@@ -22,7 +22,7 @@ While we have produced a fully functional prototype, there are a few major probl
    Code for visual tweaks, listeners and even utility methods are all in one file.
    This makes it difficult to find and make changes to existing code.
 
-FXML is a XML-based language that allows us to define our Ui interface. Properties of JavaFX objects can be defined in the FXML file. For example:  
+FXML is a XML-based language that allows us to define our ui interface. Properties of JavaFX objects can be defined in the FXML file. For example:  
 ```xml
  <TextField fx:id="userInput" layoutY="558.0" onAction="#handleUserInput" prefHeight="41.0" prefWidth="324.0" AnchorPane.bottomAnchor="1.0" />
 ```
@@ -143,8 +143,8 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Creates two dialog boxes, one echoing Ui input and the other containing Duke's reply and then appends them to
-     * the dialog container. Clears the Ui input after processing.
+     * Creates two dialog boxes, one echoing ui input and the other containing Duke's reply and then appends them to
+     * the dialog container. Clears the ui input after processing.
      */
     @FXML
     private void handleUserInput() {

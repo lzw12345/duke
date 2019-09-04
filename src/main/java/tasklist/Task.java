@@ -7,7 +7,7 @@ public abstract class Task {
     protected String description;
     protected boolean isDone;
     protected LocalDateTime date;
-    protected DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("dd MMMM hhmm a");
+    protected static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("dd MMMM hhmm a");
 
     public Task(String description, boolean completionStatus, LocalDateTime date) {
         this.description = description;
@@ -26,7 +26,7 @@ public abstract class Task {
 
     public abstract String getOverallStatus();
 
-    public void CompleteTask() {
+    public void completeTask() {
         isDone = true;
     }
 
